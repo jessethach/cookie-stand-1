@@ -1,0 +1,28 @@
+body {
+  background-color: rgb(160,82,45);
+}
+
+h1 {
+  font-family:'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  color: rgb(210,180,140);
+  text-align: center;
+
+}
+h2 {
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: bold ;
+  color: black;
+  text-align: center;
+
+}
+
+h3 {
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}

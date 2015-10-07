@@ -1,5 +1,50 @@
 var hours = ["10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"];
+var CookieStand = function(location,minCustHour,maxCustHour,avgCookiesCust) {
+  this.location = location;
+  this.minCustHour = minCustHour;
+  this.maxCustHour = maxCustHour;
+  this.avgCookiesCust = avgCookiesCust;
+  this.cookiesByHourList = [];
+};
 
+CookieStand.randCustHour = function() {
+    return Math.floor(Math.random() * (this.maxCustHour - this.minCustHour + 1)) + this.minCustHour;
+};
+CookieStand.totalCookiesHour = function() {
+    return Math.floor(this.randCustHour() * this.avgCookiesCust);
+};
+CookieStand.totalCookiesDay = function() {
+    var dailyCookies = 0;
+    for (var i = 0; i < 8; i++) {
+        this.cookiesByHourList.push(this.totalCookiesHour());
+        dailyCookies = dailyCookies + this.cookiesByHourList[i];
+//        console.log (i+10);
+//        console.log (dailyCookies);
+      }
+    return dailyCookies;
+
+  };
+
+CookieStand.makeUL = function(array) {
+    for(var i = 0; i < array.length; i++) {
+        // connect the list to the JS; this is where your list will appear
+        var hoursList = document.getElementById('pike');
+        // Create the list item:
+        var item = document.createElement('li');
+        // Set its contents:
+        item.appendChild(document.createTextNode(array[i] + ": " + this.cookiesByHourList[i] + " cookies"));
+        // Add it to the list:
+        hoursList.appendChild(item);
+      }
+  };
+
+var pikePlace = new CookieStand('Pike Place Market', 17, 88, 5.2);
+var seatacAirport = new CookieStand('Seatac Airport', 6, 44, 1.2);
+var southCenter = new CookieStand('South Center Mall', 11, 38, 1.9);
+var bellevueSquare = new CookieStand('Bellevue Square', 20, 48, 3.3);
+var alkiBeach = new CookieStand('Alki Beach', 3, 24, 2.6);
+
+/*
 // Location Pike Place Market
 var pikePlace = {
   location: "Pike Place Market",
@@ -192,3 +237,4 @@ var alkiBeach = {
 };
 alkiBeach.totalCookiesDay();
 alkiBeach.makeUL(hours);
+*/

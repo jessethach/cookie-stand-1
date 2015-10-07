@@ -8,6 +8,7 @@ var pikePlace = {
   avgCookiesCust: 5.2,
   cookiesByHourList: [],
 
+
   randCustHour: function() {
     return Math.floor(Math.random() * (this.maxCustHour - this.minCustHour + 1)) + this.minCustHour;
   },
@@ -25,25 +26,29 @@ var pikePlace = {
 //        console.log (dailyCookies);
       }
     return dailyCookies;
-
   },
 
   makeUL: function(array) {
     for(var i = 0; i < array.length; i++) {
+
         // connect the list to the JS; this is where your list will appear
         var hoursList = document.getElementById('pike');
+
         // Create the list item:
         var item = document.createElement('li');
+
         // Set its contents:
         item.appendChild(document.createTextNode(array[i] + ": " + this.cookiesByHourList[i] + " cookies"));
+
         // Add it to the list:
         hoursList.appendChild(item);
-      }
+    }
   }
 
 };
 pikePlace.totalCookiesDay();
 pikePlace.makeUL(hours);
+
 
 // Location Seatac Airport
 var seatacAirport = {

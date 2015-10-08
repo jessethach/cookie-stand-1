@@ -1,5 +1,53 @@
-var hours = ["10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"];
+var CookieStand = function(location,minCustHour,maxCustHour,avgCookiesCust,id) {
+  this.location = location;
+  this.minCustHour = minCustHour;
+  this.maxCustHour = maxCustHour;
+  this.avgCookiesCust = avgCookiesCust;
+  this.id = id;
+  this.cookiesByHourList = [];
+  this.hours = ["10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"];
+};
 
+CookieStand.randCustHour = function() {
+    return Math.floor(Math.random() * (this.maxCustHour - this.minCustHour + 1)) + this.minCustHour;
+};
+CookieStand.totalCookiesHour = function() {
+    return Math.floor(this.randCustHour() * this.avgCookiesCust);
+};
+CookieStand.totalCookiesDay = function() {
+    var dailyCookies = 0;
+    for (var i = 0; i < 8; i++) {
+        this.cookiesByHourList.push(this.totalCookiesHour());
+        dailyCookies = dailyCookies + this.cookiesByHourList[i];
+//        console.log (i+10);
+//        console.log (dailyCookies);
+      }
+    return dailyCookies;
+  };
+
+this.makeUL = function(id) {
+    for(var i = 0; i < this.cookiesByHourList.length; i++) {
+        // connect the list to the JS; this is where your list will appear
+        var hoursList = document.getElementById(id);
+        // Create the list item:
+        var item = document.createElement('li');
+        // Set its contents:
+        item.appendChild(document.createTextNode(array[i] + ": " + this.cookiesByHourList[i] + " cookies"));
+        // Add it to the list:
+        hoursList.appendChild(item);
+      }
+  };
+
+this.makeUL(this.id);
+
+var pikePlace = new CookieStand('Pike Place Market', 17, 88, 5.2, 'pike');
+var seatacAirport = new CookieStand('Seatac Airport', 6, 44, 1.2,'seatac');
+var southCenter = new CookieStand('South Center Mall', 11, 38, 1.9, 'southcenter');
+var bellevueSquare = new CookieStand('Bellevue Square', 20, 48, 3.3, 'bellevue');
+var alkiBeach = new CookieStand('Alki Beach', 3, 24, 2.6, 'alki');
+
+/*
+var hours = ["10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"];
 // Location Pike Place Market
 var pikePlace = {
   location: "Pike Place Market",
@@ -208,3 +256,4 @@ var alkiBeach = {
 };
 alkiBeach.totalCookiesDay();
 alkiBeach.makeUL(hours);
+*/

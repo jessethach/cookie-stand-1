@@ -48,6 +48,10 @@ var pikePlace = {
 };
 pikePlace.totalCookiesDay();
 pikePlace.makeUL(hours);
+var pikePlaceTotal = document.getElementById('pikeTotal');
+pikePlaceTotal.textContent = 'Total: ' + pikePlace.totalCookiesDay() + ' cookies';
+
+
 
 
 // Location Seatac Airport
@@ -86,6 +90,10 @@ var seatacAirport = {
 };
 seatacAirport.totalCookiesDay();
 seatacAirport.makeUL(hours);
+var seatacAirportTotal = document.getElementById('seatacTotal');
+seatacAirportTotal.textContent = 'Total: ' + seatacAirport.totalCookiesDay() + ' cookies';
+
+
 
 // Location South Center Mall
 var southCenter = {
@@ -123,6 +131,9 @@ var southCenter = {
 };
 southCenter.totalCookiesDay();
 southCenter.makeUL(hours);
+var southCenterTotal = document.getElementById('southcenterMallTotal');
+southCenterTotal.textContent = 'Total: ' + southCenterTotal.totalCookiesDay() + ' cookies';
+
 
 // Location Bellevue Square
 var bellevueSquare = {

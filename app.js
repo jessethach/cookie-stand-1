@@ -87,9 +87,9 @@ var seatacAirport = {
 seatacAirport.totalCookiesDay();
 seatacAirport.makeUL(hours);
 
-// Location South Center Mall
+// Location Southcenter Mall
 var southCenter = {
-  location: "South Center Mall",
+  location: "Southcenter Mall",
   minCustHour: 11,
   maxCustHour: 38,
   avgCookiesCust: 1.9,
